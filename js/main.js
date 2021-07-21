@@ -14,18 +14,20 @@ var gGame = {
     noOfLives: 3,
     nonMineCount: gLevel.SIZE ** 2 - gLevel.MINES,
     timerInterval: 0,
-    startTime: 0
+    startTime: 0,
+    minesLeft: gLevel.MINES,
+    minesLeftInterval: 0,
+    firstCellClicked: false
 };
 
 function initGame() {
-    buildBoard()
-    // gBoard[0][0].isMine = true
-    // gBoard[0][1].isMine = true
-    positionMineOnEmptyCells()
-    setMinesNegsCount()
-    gGame.startTime = Date.now()
-    gGame.timerInterval = setInterval(renderTimer, 100, gGame.startTime);
-    renderBoard(gBoard)
+    buildBoard();
+    positionMineOnEmptyCells();
+    setMinesNegsCount();
+    renderMinesLeft();
+    gGame.startTime = Date.now();
+    gGame.timerInterval = setInterval(renderTimer, 500, gGame.startTime);
+    renderBoard(gBoard);
 }
 
 function renderBoard(board) {
@@ -65,18 +67,24 @@ function setMinesNegsCount() {
 function cellClicked(elCell, i, j) {
     var currCell = gBoard[i][j]
     if (currCell.isMarked) return;
-    if (currCell.isMine && !currCell.isShown) gGame.noOfLives--;
+    if (currCell.isMine && !currCell.isShown) {
+        gGame.noOfLives--
+        gGame.minesLeft--
+        renderMinesLeft()
+    };
     if (!currCell.isMine && !currCell.isShown) {
         if (currCell.minesAroundCount === 0) {
-            // var locations = getEmptyNegsLocations({ i, j });
-            revealEmptyNegs(getEmptyNegsLocations({ i, j }));
+            var locations = getEmptyNegsLocations({ i, j })
+            revealEmptyNegs(locations);
+            gGame.nonMineCount -= (locations.length === gGame.nonMineCount) ? locations.length - 1 : locations.length;
         }
+        gGame.nonMineCount--
     }
-    gGame.nonMineCount--;
+    console.log(gGame.nonMineCount);
     currCell.isShown = true;
     elCell.classList.remove('hidden');
     elCell.classList.add('shown');
-    if (checkGameOver()) clearInterval(gGame.timerInterval);
+    if (checkGameOver()) endGame();
 }
 
 function markCell(elCell, i, j, event) {
@@ -93,17 +101,17 @@ function markCell(elCell, i, j, event) {
 function positionMineOnEmptyCells() {
     switch (gLevel.SIZE) {
         case 4:
-            var noOfMines = 2;
+            gLevel.MINES = 2;
             break;
         case 8:
-            var noOfMines = 12;
+            gLevel.MINES = 12;
             break;
         case 12:
-            var noOfMines = 30;
+            gLevel.MINES = 30;
             break;
     }
     var emptyPositions = getEmptyPositions(gBoard);
-    for (var i = 0; i < noOfMines; i++) {
+    for (var i = 0; i < gLevel.MINES; i++) {
         var rndIdx = getRandomInteger(0, emptyPositions.length - 1)
         var emptyPosition = emptyPositions.splice(rndIdx, 1)[0];
         gBoard[emptyPosition.i][emptyPosition.j].isMine = true;
@@ -131,11 +139,12 @@ function getEmptyNegsLocations(pos) {
             if (j >= gLevel.SIZE || j < 0) continue;
             if (i === pos.i && j === pos.j) continue;
             if (gBoard[i][j].minesAroundCount === 0 && !gBoard[i][j].isMine) {
-
                 locations.push({ i, j });
+
             }
         }
     }
+
     return locations;
 }
 
@@ -143,10 +152,23 @@ function revealEmptyNegs(locations) {
     for (var idx = 0; idx < locations.length; idx++) {
         currLocation = locations[idx];
         gBoard[currLocation.i][currLocation.j].isShown = true;
-        gGame.nonMineCount--;
         var elNegCell = document.querySelector(`[data-i="${currLocation.i}"][data-j="${currLocation.j}"]`);
         elNegCell.classList.remove('hidden');
         elNegCell.classList.add('shown');
-        gGame.nonMineCount--;
     }
+}
+
+function renderMinesLeft() {
+    var elMinesLeft = document.querySelector('.mines-left')
+    elMinesLeft.innerText = gGame.minesLeft;
+}
+
+function endGame() {
+    clearInterval(gGame.timerInterval)
+    clearInterval(gGame.minesLeftInterval)
+}
+
+function restart() {
+    endGame()
+    initGame()
 }

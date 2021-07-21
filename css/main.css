@@ -14,8 +14,8 @@ td {
     border-radius: 2px;
 }
 
-table {
-    margin: auto
+table, tr {
+    margin: auto;
 }
 
 td:hover {
@@ -43,6 +43,28 @@ td:hover {
     width: 10px;
 }
 
-.bar{
-    margin: auto;
+.bar {
+    text-align: center;
+    margin-bottom: 25px;
+    padding: 10px;
+}
+
+.smiley {
+    border: none;
+    background-color: white;
+}
+
+.smiley:hover {
+    cursor: pointer;
+}
+
+.timer {
+    display: inline-block;
+    margin-left: 20px;
+}
+
+.mines-left {
+    margin-right: 20px;
+    display: inline-block;
+    text-shadow: 1px 1px 2px pink;
 }

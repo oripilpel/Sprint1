@@ -2,27 +2,38 @@
 <html lang="en">
 
 <head>
-    <title>Document</title>
-    <link rel="stylesheet" href="css/main.css">
+    <meta charset="UTF-8">
+    <title>Mines Ethan</title>
+    <link rel="stylesheet" href="css/app.css">
 </head>
 
-
 <body onload="initGame()">
+    <div class="gameInfo">
+        <div class="timer">0.00</div>
+    </div>
     <div class="board">
-        <div class="bar">
-            <div class="mines-left"></div>
-            <button onclick="restart()" class="smiley">😇</button>
-            <div class="timer"></div>
+        <div class="levels">
+            <input type="radio" id="Good" value="4" name="level" onclick="changeLevel(this.value)" />
+            <label for="Good">Good</label></br>
+            <input type="radio" id="Expert" value="8" name="level" onclick="changeLevel(this.value)" />
+            <label for="Expert"> Experts</label></br>
+            <input type="radio" id="Extreme" value="12" name="level" onclick="changeLevel(this.value)" />
+            <label for="Extreme">Extreme</label>
+            
         </div>
-        <table>
-            <th></th>
-            <tbody>
-
-            </tbody>
+        <table class="gameBoard">
         </table>
     </div>
-    <script src="js/util.js"></script>
-    <script src="js/main.js"></script>
+    <div class="lives">
+        <p class="life 1-life"></p>
+        <p class="life 2-life"></p>
+        <p class="life 3-life"></p>
+    </div>
+    <button onclick="initGame()">Play Again</button>
+    <div class="modal"></div> 
+    <footer>ⒸEthan georlette</footer>
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>

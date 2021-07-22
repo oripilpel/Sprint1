@@ -1,0 +1,129 @@
+body, html{
+    height: 100%;
+    background-image:url("img/background.jpg");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-align: center;
+}
+table{
+    border: solid black 1px;
+    background-image: linear-gradient( grey, white);
+    min-height:300px;
+    min-width: 300px;
+    max-width: 500px;
+    max-height: 500px;
+    position:relative;
+    display: inline-table;
+}
+table td{
+    background-image:url('img/sand.jpg') ;
+    background-size: 100%;
+    border: black 1px solid;
+    border-radius: 10%;
+    height: 40px;
+    width: 40px;
+    padding: 0px;
+    margin: 0px;
+    box-shadow: 1px 1px 1px black;
+    text-align: center;
+    font-family: cursive;
+    color: blue;
+}
+table td:hover{
+    box-shadow: inset 1px 1px 1px black;
+}
+td img{
+    height: inherit;
+    width: inherit;
+    padding: 0px;
+}
+@font-face {
+    font-family: digital-clock;
+    src: url(font/digital-7.ttf);
+}
+.timer{
+    position: relative;
+    color:orange ;
+    margin: 10px;
+    margin-left:52%;
+    margin-right: auto;
+    text-align: center;
+    padding-top: 2px;
+    border: gray solid 2px;
+    background-color: black;
+    width: 80px;
+    height: 30px;
+    font-family:digital-clock ;
+    font-size: 30px;
+    left: auto;
+    right: auto;
+}
+.levels{
+    text-align: left;
+    padding-top: 30px;
+    float: left;
+    display:inline;
+    padding: 3px;
+    font-family: digital-clock;
+    font-size: 30px;
+
+}
+input{
+    display: inline-table;
+    margin-bottom: 30px;
+}
+.clicked{
+    filter: grayscale(50%);
+    box-shadow: inset 1px 1px 1px black;
+}
+.mine{
+    background-image:radial-gradient(circle, rgba(238, 13, 13, 0.089),red);
+}
+button{
+background-color: rgba(128, 128, 128, 0.452);
+border: black 2px solid;
+font-family: cursive;
+font-size: 16px;
+height: 30px;
+width: 100px;
+margin-top: 30px;
+box-shadow: 1px 1px 1px black;
+}
+button:hover{
+    box-shadow:inset 0.5px 0.5px 0.5px black;
+}
+button:active{
+    transition: 0.2s;
+    box-shadow: inset 2px 2px 2px black;
+}
+.modal{
+    position:relative;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 4
+    0px;
+    text-align: center;
+    height: 300px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    font-family: cursive;
+    font-size: 30px;
+    color: firebrick;
+}
+.hidden{
+    display: none;
+    background-color: red;
+}
+footer{
+    margin: 50px;
+}
+.lives{
+    background-color: gray;
+    border: solid black 1px;
+    height: 20px;
+    width: 100px;
+
+}

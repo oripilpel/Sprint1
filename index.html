@@ -2,38 +2,35 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Mines Ethan</title>
-    <link rel="stylesheet" href="css/app.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 
+
 <body onload="initGame()">
-    <div class="gameInfo">
-        <div class="timer">0.00</div>
-    </div>
     <div class="board">
-        <div class="levels">
-            <input type="radio" id="Good" value="4" name="level" onclick="changeLevel(this.value)" />
-            <label for="Good">Good</label></br>
-            <input type="radio" id="Expert" value="8" name="level" onclick="changeLevel(this.value)" />
-            <label for="Expert"> Experts</label></br>
-            <input type="radio" id="Extreme" value="12" name="level" onclick="changeLevel(this.value)" />
-            <label for="Extreme">Extreme</label>
-            
+        <div class="bar">
+            <div class="hints"></div>
+            <div class="undo"><img onclick="onUndo()" src="/img/undo.png"></div>
+            <div class="lives"></div>
+            <button onclick="restart()" class="smiley">😀</button>
+            <div class="timer">0</div>
         </div>
-        <table class="gameBoard">
+        <div class="difficulty">
+            <button onclick="setDifficulty('easy')">Easy</button>
+            <button onclick="setDifficulty('hard')">Hard</button>
+            <button onclick="setDifficulty('extreme')">Extreme</button>
+        </div>
+        <table>
+            <th></th>
+            <tbody>
+
+            </tbody>
         </table>
     </div>
-    <div class="lives">
-        <p class="life 1-life"></p>
-        <p class="life 2-life"></p>
-        <p class="life 3-life"></p>
-    </div>
-    <button onclick="initGame()">Play Again</button>
-    <div class="modal"></div> 
-    <footer>ⒸEthan georlette</footer>
-    <script src="js/utils.js"></script>
-    <script src="js/app.js"></script>
+    <div class="footer"> Ori Pilpel</div>
+    <script src="js/util.js"></script>
+    <script src="js/main.js"></script>
 </body>
 
 </html>

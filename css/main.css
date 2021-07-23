@@ -1,0 +1,156 @@
+body {
+    background-image: url(/img/img.jpg);
+}
+
+td {
+    border: 4px rgb(56, 56, 56) solid;
+    border-top-color: rgb(187, 187, 187);
+    border-left-color: rgb(187, 187, 187);
+    background: radial-gradient(circle, rgba(206, 212, 218, 0.8) 0%, rgba(68, 73, 77, 0.8) 100%);
+    padding: 5px;
+    border-style: solid;
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    margin-left: 3px;
+    margin-bottom: 1px;
+    border-radius: 3px;
+    font-size: 25px;
+    box-shadow: 0 0 5px 2px;
+    font-weight: bold;
+}
+
+table {
+    margin: auto;
+}
+
+td:hover {
+    background: radial-gradient(circle, rgb(173, 158, 158) 0%, rgb(143, 113, 113) 100%);
+}
+
+.hidden {
+    font-size: 0;
+}
+
+.shown {
+    background-color: rgb(211, 209, 209);
+    background: radial-gradient(circle, rgba(242, 244, 246, 0.8) 0%, rgba(212, 212, 212, 0.8) 100%);
+}
+
+:not(.marked) .hidden img {
+    width: 0px
+}
+
+.mine {
+    width: 20px;
+}
+
+.marked img.flag {
+    height: 25px;
+    width: 16px;
+}
+
+.bar {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.smiley {
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    font-size: 25px;
+    padding: 0;
+    border-radius: 50%;
+}
+
+.smiley:hover {
+    cursor: pointer;
+}
+
+.timer {
+    display: inline-block;
+    font-size: 25px;
+    margin-left: 30px;
+    position: relative;
+    bottom: 5px;
+    width: 70px;
+    height: 35px;
+    box-shadow: 0 0 5px 2px;
+    border-radius: 4px;
+    font-weight: 900;
+    background: radial-gradient(circle, rgba(206, 212, 218, 1) 0%, rgba(108, 117, 125, 1) 100%);
+}
+
+.lives {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.lives img {
+    width: 25px;
+    margin-right: 5px;
+}
+
+.footer {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.difficulty {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.difficulty button {
+    background-color: rgb(163, 163, 163);
+    border: none;
+    font-size: 20px;
+    margin-right: 5px;
+    -webkit-box-shadow: inset -1px 3px 8px 5px #353535, 2px 5px 16px 0px #353535, 0 0 2px 1px rgba(0, 0, 0, 0.16);
+    box-shadow: inset -1px 3px 8px 5px #a1aab4, 2px 5px 16px 0px #353535, 0 0 3px 2px rgba(0, 0, 0, 0.16);
+    border-radius: 4px;
+    transition: background-color 0.2s ease;
+}
+
+.difficulty button:hover {
+    cursor: pointer;
+    background-color: rgb(128, 128, 128);
+}
+
+.hints {
+    display: block;
+    position: relative;
+    right: 190px;
+    top: 30px;
+    display: inline-block;
+}
+
+.hints img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+.hints img:hover {
+    cursor: pointer;
+}
+
+.wrong {
+    width: 25px;
+}
+
+.undo {
+    height: 0px;
+}
+
+.undo img {
+    width: 35px;
+    display: inline-block;
+    position: relative;
+    left: 180px;
+}
+
+.undo:hover {
+    cursor: pointer;
+}

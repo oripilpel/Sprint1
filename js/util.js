@@ -15,7 +15,7 @@ function createCell() {
         isShown: false,
         isMine: false,
         isMarked: false,
-        isWrong:false
+        isWrong: false
 
     }
 }
@@ -26,7 +26,7 @@ function copyCell(cell) {
         isShown: cell.isShown,
         isMine: cell.isMine,
         isMarked: cell.isMarked,
-        isWrong:false
+        isWrong: false
     }
 }
 
@@ -52,7 +52,8 @@ function getEmptyPositions(pos) {
     var emptyPositions = [];
     for (var i = 0; i < gLevel.SIZE; i++) {
         for (var j = 0; j < gLevel.SIZE; j++) {
-            if (pos.i === i && pos.j === j) continue;
+            if (pos && (pos.i === i && pos.j === j)) continue;
+            if (gBoard[i][j].isMine || gBoard[i][j].isMarked || gBoard[i][j].isShown) continue
             emptyPositions.push({ i, j })
         }
     }

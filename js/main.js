@@ -278,7 +278,7 @@ function setDifficulty(difficulty) {
 }
 
 function onHintClick() {
-    if (!gGame.hintsLeft || !gGame.isOn) return;
+    if (!gGame.hintsLeft || !gGame.isOn || gGame.isHintOn) return;
     gGame.isHintOn = true;
     gGame.hintsLeft--
     renderHints()

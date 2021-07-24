@@ -32,6 +32,7 @@ function initGame() {
     buildBoard();
     renderBoard(gBoard);
     setMineCount()
+    gGame.hintsLeft = 3;
     gGame.noOfLives = (gLevel.SIZE === 4) ? 2 : 3;
     gGame.safeClickCounter = 3;
     renderSafeClicksNum()
@@ -47,7 +48,6 @@ function startGame(pos) {
     renderHints()
     gGame.nonMineCount = gLevel.SIZE ** 2 - gLevel.MINES
     gGame.minesLeft = gLevel.MINES
-    gGame.hintsLeft = 3;
     gGame.startTime = Date.now();
     gGame.timerInterval = setInterval(renderTimer, 500, gGame.startTime);
     renderLives()
